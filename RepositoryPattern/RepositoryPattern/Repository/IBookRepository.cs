@@ -9,5 +9,6 @@ namespace RepositoryPattern.Repository
     public interface IBookRepository<T>
     {
         T GetOne(int id);
+        List<T> GetAll();
     }
 }

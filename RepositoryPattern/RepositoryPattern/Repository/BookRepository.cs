@@ -19,5 +19,22 @@ namespace RepositoryPattern.Repository
         {
             return this.dbContext.Set<Book>().Find(id);
         }
+
+        public List<Book> GetAll()
+        {
+            using (var context = new BookDbContext())
+            {
+                try
+                {
+                    return (from p in context.Books
+                            select p).ToList();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
     }
 }
